@@ -9,8 +9,11 @@ Node.js (v12 or higher)
 npm (v6 or higher)
 
 Installation
+
  1.Clone the repository:git clone https://github.com/sarim705/restful-api.git
+ 
   cd restful-api
+  
  2.Install the dependencies:
  npm install
  
