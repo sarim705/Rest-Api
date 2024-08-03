@@ -43,6 +43,7 @@ Method: GET
 Description: Retrieve a note by its ID.
 
 Example:curl -X GET http://localhost:5003/notes/1
+
 Response:
 
 {"id":1,"title":"Hello ","content":"I done it! successfully implemented REST Api.","tags":["personal"]}
@@ -60,9 +61,69 @@ Method: PUT
 Description: Update an existing note.
 
 Example: curl -X PUT http://localhost:5000/notes/1 -H "Content-Type: application/json" -d '{"title":"Updated Title"}'
+
 Response
 
 {"id":1,"title":"Updated Title","content":"I done it! successfully implemented REST Api.","tags":["personal"]}
+
+Delete a Note
+
+URL: /notes/:id
+Method: DELETE
+Description: Delete a note by its ID
+
+Example 
+
+curl -X DELETE http://localhost:5000/notes/1
+
+Response
+
+204 No Content
+
+Add Tags to Note
+URL: /notes/:id/tags
+Method: PUT
+Description: Add tags to an existing note.
+
+Example:
+curl -X PUT http://localhost:5000/notes/1/tags -H "Content-Type: application/json" -d '{"tags":["important"]}'
+
+Response
+
+{"id":1,"title":"Hello ","content":"I done it! successfully implemented REST Api.","tags":["personal","important"]}
+
+Remove Tags from Note
+URL: /notes/:id/tags
+Method: DELETE
+Description: Remove tags from an existing note.
+
+Example
+curl -X DELETE http://localhost:5000/notes/1/tags -H "Content-Type: application/json" -d '{"tags":["personal"]}'
+
+Response
+{"id":1,"title":"Hello ","content":"I done it! successfully implemented REST Api.","tags":["important"]}
+
+Query Notes
+URL: /notes/query?tags={tags}
+Method: GET
+Description: Query notes based on tags with AND, OR, and NOT conditions.
+
+Example
+curl -X GET "http://localhost:5000/notes/query?tags=Thoughts AND self"
+
+Response
+[
+    {"id":3,"title":"Everything is MohMaya","content":"Be careful! Always","tags":["Thoughts","self"]},
+    {"id":4,"title":"AI is future","content":"AI is future as its advancing day by day","tags":["Thoughts","self"]}
+]
+
+
+Conclusion
+
+This RESTful API allows you to manage notes with various functionalities, including querying based on complex tag conditions. Feel free to explore and extend the API as needed. Contributions are welcome!
+
+For any issues or suggestions, please open an issue on GitHub.
+
 
 
 
