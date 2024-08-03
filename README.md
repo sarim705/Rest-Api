@@ -17,7 +17,7 @@ Installation
 Running the Server
 To start the server, run:
 node index.js
-The server will start on port 5000. You should see a message like:
+The server will start on port 5003. You should see a message like:
 Server is running on port 5003
 
 
@@ -52,7 +52,7 @@ URL: /notes
 Method: POST
 Description: Create a new note.
 
-Example:curl -X POST http://localhost:5000/notes -H "Content-Type: application/json" -d '{"title":"New Note","content":"This is a new note.","tags":["new","note"]}'
+Example:curl -X POST http://localhost:5003/notes -H "Content-Type: application/json" -d '{"title":"New Note","content":"This is a new note.","tags":["new","note"]}'
 
 Update a Note
 
@@ -60,7 +60,7 @@ URL: /notes/:id
 Method: PUT
 Description: Update an existing note.
 
-Example: curl -X PUT http://localhost:5000/notes/1 -H "Content-Type: application/json" -d '{"title":"Updated Title"}'
+Example: curl -X PUT http://localhost:5003/notes/1 -H "Content-Type: application/json" -d '{"title":"Updated Title"}'
 
 Response
 
@@ -74,7 +74,7 @@ Description: Delete a note by its ID
 
 Example 
 
-curl -X DELETE http://localhost:5000/notes/1
+curl -X DELETE http://localhost:5003/notes/1
 
 Response
 
@@ -86,7 +86,7 @@ Method: PUT
 Description: Add tags to an existing note.
 
 Example:
-curl -X PUT http://localhost:5000/notes/1/tags -H "Content-Type: application/json" -d '{"tags":["important"]}'
+curl -X PUT http://localhost:5003/notes/1/tags -H "Content-Type: application/json" -d '{"tags":["important"]}'
 
 Response
 
@@ -98,7 +98,7 @@ Method: DELETE
 Description: Remove tags from an existing note.
 
 Example
-curl -X DELETE http://localhost:5000/notes/1/tags -H "Content-Type: application/json" -d '{"tags":["personal"]}'
+curl -X DELETE http://localhost:5003/notes/1/tags -H "Content-Type: application/json" -d '{"tags":["personal"]}'
 
 Response
 {"id":1,"title":"Hello ","content":"I done it! successfully implemented REST Api.","tags":["important"]}
@@ -109,7 +109,7 @@ Method: GET
 Description: Query notes based on tags with AND, OR, and NOT conditions.
 
 Example
-curl -X GET "http://localhost:5000/notes/query?tags=Thoughts AND self"
+curl -X GET "http://localhost:5003/notes/query?tags=Thoughts AND self"
 
 Response
 [
